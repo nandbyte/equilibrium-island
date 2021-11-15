@@ -32,7 +32,6 @@ public class Cell : MonoBehaviour
 
 
     // Game parameters
-
     public CellType type;
 
     public int power;
@@ -47,7 +46,6 @@ public class Cell : MonoBehaviour
     private Color transparentColor;
 
 
-
     void Start()
     {
         Debug.Log("Created cell at: " + x + ", " + y);
@@ -55,7 +53,6 @@ public class Cell : MonoBehaviour
         this.SetType(this.type);
         transparentColor = new Color(0.113f, 0.455f, 0.165f, 1);
     }
-
 
     public void SetType(CellType type)
     {
@@ -67,6 +64,7 @@ public class Cell : MonoBehaviour
         // TODO: Change the turn here
 
     }
+
     void GetRenderObject()
     {
         switch (this.type)
@@ -74,23 +72,29 @@ public class Cell : MonoBehaviour
             case CellType.Grass:
                 renderObject = null;
                 break;
+
             case CellType.Forest:
                 renderObject = forest;
                 break;
+
             case CellType.Residence:
                 renderObject = residence;
                 break;
+
             case CellType.Powerplant:
                 renderObject = powerplant;
                 break;
+
             case CellType.Industry:
                 renderObject = industry;
                 break;
+
             default:
                 renderObject = null;
                 break;
         }
     }
+
     void InstantiateObject()
     {
         if (renderObject != null)
@@ -98,7 +102,6 @@ public class Cell : MonoBehaviour
             Instantiate(renderObject, new Vector3(x, 0.35f, y), Quaternion.identity);
         }
     }
-
 
     private void OnMouseEnter()
     {
@@ -123,20 +126,14 @@ public class Cell : MonoBehaviour
         if (isHovered)
         {
             isSelected = true;
-            GameManager.instance.SelectCell(this.gameObject); overlay.GetComponent<Renderer>().material.color = Color.yellow;
+            GameManager.instance.SelectCell(this.gameObject);
+            overlay.GetComponent<Renderer>().material.color = Color.yellow;
         }
-        else if (!isHovered && isSelected)
+        else if (!isHovered)
         {
             isSelected = false;
             GameManager.instance.SelectCell(null);
             overlay.GetComponent<Renderer>().material.color = transparentColor;
-
         }
     }
-
-
 }
-
-
-
-

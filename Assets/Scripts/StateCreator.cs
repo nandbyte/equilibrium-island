@@ -46,14 +46,25 @@ public class StateCreator : MonoBehaviour
             {
                 GameManager.instance.currentState[i, j] = Instantiate(cell, new Vector3(i, 0, j), transform.rotation);
 
-                GameManager.instance.currentState[i, j].GetComponent<Cell>().type = CellType.Grass;
-
-
+                GameManager.instance.currentState[i, j].GetComponent<Cell>().type = GetSpawnType();
                 GameManager.instance.currentState[i, j].GetComponent<Cell>().x = i;
-
-
                 GameManager.instance.currentState[i, j].GetComponent<Cell>().y = j;
             }
         }
+    }
+
+
+    CellType GetSpawnType()
+    {
+
+        int draw = Random.Range(0, 21);
+        CellType targetType = CellType.Grass;
+
+        if (draw < 10) targetType = CellType.Grass;
+        else if (draw >= 10 && draw <= 18) targetType = CellType.Forest;
+        else if (draw == 19) targetType = CellType.Powerplant;
+        else if (draw > 19) targetType = CellType.Residence;
+
+        return targetType;
     }
 }
