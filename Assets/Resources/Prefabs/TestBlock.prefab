@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1195531628792065826}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.36, z: 0}
+  m_LocalPosition: {x: 0, y: 0.15, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8836524784719653688}
@@ -233,7 +233,7 @@ GameObject:
   - component: {fileID: 8825994298379274731}
   - component: {fileID: 4540737312205869472}
   m_Layer: 0
-  m_Name: Hoverlay
+  m_Name: Overlay
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -325,8 +325,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8836524784719653688}
-  - component: {fileID: 1890745151186568981}
   - component: {fileID: 7883804961543792285}
+  - component: {fileID: 1902227007987345475}
   m_Layer: 0
   m_Name: TestBlock
   m_TagString: Untagged
@@ -352,22 +352,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1890745151186568981
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9221724138560733737}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 35283c526f020c94a95570fcd3d83758, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hoverlay: {fileID: 6493251219804878886}
-  grassMaterial: {fileID: 2100000, guid: d6823f97a87fcd546b8e2ad51dcd04be, type: 2}
-  hoverlayMaterial: {fileID: 2100000, guid: 113867e940063c240be3b123b9396bd9, type: 2}
-  building: {fileID: 7585055156523274035, guid: 89cd3f65277216a40836efef105c34c4, type: 3}
 --- !u!65 &7883804961543792285
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -381,3 +365,27 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 0.3775638, z: 1}
   m_Center: {x: 0, y: 0.5042846, z: 0}
+--- !u!114 &1902227007987345475
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9221724138560733737}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4fd25383b1d033b47a073ed3f59f48ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  forest: {fileID: 7997700652980203297, guid: b661735f164435e4b95ea4fef223670f, type: 3}
+  residence: {fileID: 7997700652980203297, guid: e06e9b5892d2e5d42addcf0ea5f7b2b3, type: 3}
+  powerplant: {fileID: 7997700652980203297, guid: 40126bb2e8463554daa743c16ae88555, type: 3}
+  industry: {fileID: 7997700652980203297, guid: 40126bb2e8463554daa743c16ae88555, type: 3}
+  x: 0
+  y: 0
+  type: 0
+  power: 0
+  pollution: 0
+  production: 0
+  value: 0
+  overlay: {fileID: 6493251219804878886}

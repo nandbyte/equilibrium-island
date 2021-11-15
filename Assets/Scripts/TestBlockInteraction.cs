@@ -16,15 +16,19 @@ public class TestBlockInteraction : MonoBehaviour
     [SerializeField]
     private GameObject building;
 
+    public Cell cell;
+
     private bool isHovered = false;
     private bool containsBuilding = false;
     private Vector3 buildingPosition;
     private GameObject previewBuilding;
 
 
+
+
     void Start()
     {
-        buildingPosition = new Vector3(transform.position.x, 0.45f, transform.position.z);
+        buildingPosition = new Vector3(transform.position.x, 0.35f, transform.position.z);
     }
 
     private void OnMouseDown()
@@ -39,18 +43,16 @@ public class TestBlockInteraction : MonoBehaviour
     private void OnMouseEnter()
     {
         isHovered = true;
-        Debug.Log("Hello");
         hoverlay.GetComponent<Renderer>().material = hoverlayMaterial;
         if (!containsBuilding)
         {
             previewBuilding = Instantiate(building, buildingPosition, Quaternion.identity);
-            previewBuilding.GetComponent<Renderer>().material.color = new Color(1.0f, 1.0f, 1.0f, 0.2f);
         }
     }
 
     private void OnMouseExit()
     {
-        isHovered = false; Debug.Log("Bye");
+        isHovered = false;
         hoverlay.GetComponent<Renderer>().material = grassMaterial;
         Destroy(previewBuilding);
     }

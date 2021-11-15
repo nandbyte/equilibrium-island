@@ -8,9 +8,14 @@ public class GameManager : MonoBehaviour
     // Singleton
     public static GameManager instance;
 
-    // Hovered cell
-    public int x;
-    public int y;
+    // State
+    public GameObject[,] currentState;
+    public GameObject[,] previousState;
+
+    // Cell
+    public GameObject selectedCell;
+    public GameObject hoveredCell;
+
 
 
     // Selected building
@@ -25,18 +30,25 @@ public class GameManager : MonoBehaviour
 
 
 
+
     void Awake()
     {
+        // Initialize singleton
         instance = this;
+
+    }
+
+    void Start()
+    {
+
     }
 
 
-    public event Action onNextTurn;
-
-
-    public void nextTurn()
+    public void SelectCell(GameObject cell)
     {
-        onNextTurn?.Invoke();
+        selectedCell = cell;
+        Debug.Log("Selected cell number: " + selectedCell.GetComponent<Cell>().x + " " + selectedCell.GetComponent<Cell>().y);
+
     }
 
     // Generate Terrain
